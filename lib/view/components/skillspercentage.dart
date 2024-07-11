@@ -1,34 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:linear_progress_bar/linear_progress_bar.dart';
 
 class SkillsPercent extends StatelessWidget {
   final String text;
-  const SkillsPercent({super.key, required this.text});
+  final int currentStep;
+  final int maxSteps;
+
+  const SkillsPercent({
+    super.key,
+    required this.text,
+    required this.currentStep,
+    this.maxSteps = 10, // Default max steps
+  });
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
+          textAlign: TextAlign.start,
           text,
-          style: const TextStyle(fontSize: 22, color: Colors.orangeAccent),
+          style: TextStyle(fontSize: width / 40, color: Colors.orangeAccent),
         ),
-        const SizedBox(width: 30),
-        LinearProgressBar(
-          maxSteps: 9,
-          progressType: LinearProgressBar.progressTypeDots,
-          currentStep: 5,
-          progressColor: Colors.orangeAccent,
-          backgroundColor: Colors.grey,
-          dotsAxis: Axis.horizontal, // OR Axis.vertical
-          dotsActiveSize: 10,
-          dotsInactiveSize: 10,
-          dotsSpacing:
-              EdgeInsets.only(right: 10), // also can use any EdgeInsets.
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
-          semanticsLabel: "Label",
-          semanticsValue: "Value",
-          minHeight: 10,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: List.generate(maxSteps, (index) {
+              return Container(
+                width: width / 60,
+                height: 10,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color:
+                      index < currentStep ? Colors.orangeAccent : Colors.grey,
+                ),
+                margin: const EdgeInsets.only(right: 10),
+              );
+            }),
+          ),
         ),
       ],
     );

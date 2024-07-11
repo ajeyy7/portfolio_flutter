@@ -60,13 +60,7 @@ class ProfilePage extends StatelessWidget {
               )
             ],
           )),
-          // Expanded(
-          //     child: Container(
-          //   height: 540,
-          //   decoration: const BoxDecoration(
-          //       image: DecorationImage(
-          //           fit: BoxFit.contain, image: AssetImage(''))),
-          // ))
+          
         ],
       ),
     );
