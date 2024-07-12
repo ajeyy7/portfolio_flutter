@@ -20,11 +20,11 @@ class Homepage extends StatelessWidget {
           decoration: const BoxDecoration(color: Color(0xff120720)),
           child: const Column(
             children: [
-              // navBar(),
-              // ProfilePage(),
-              // AboutMePage(),
+              NavBar(),
+              ProfilePage(),
+              AboutMePage(),
               SkillsPage(),
-              // ProjectPage(),
+              ProjectPage(),
               // ContactPage()
             ],
           ),

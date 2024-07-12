@@ -13,7 +13,7 @@ class AboutMePage extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 textAlign: TextAlign.start,
@@ -33,20 +33,39 @@ class AboutMePage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 30),
-          Row(
-            children: [
-              Text(
-                textAlign: TextAlign.start,
-                "Hi, I'm Ajay, a Flutter developer passionate \nabout building beautiful and functional\n mobile apps. With expertise in Flutter and Firebase,\n I create seamless cross-platform experiences. Always eager to learn, \nI'm honing my skills in Dart and object-oriented\n programming. Let's build something amazing together!",
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width / 90,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.orangeAccent,
-                ),
-              ),
-              SvgPicture.asset('assets/svgs/4102879_971.svg')
-            ],
-          ),
+          LayoutBuilder(builder: (context, constraints) {
+            if (constraints.maxWidth > 600) {
+              return Row(
+                children: [
+                  Text(
+                    textAlign: TextAlign.start,
+                    "Hi, I'm Ajay, a Flutter developer passionate \nabout building beautiful and functional\n mobile apps. With expertise in Flutter and Firebase,\n I create seamless cross-platform experiences. Always eager to learn, \nI'm honing my skills in Dart and object-oriented\n programming. Let's build something amazing together!",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width / 60,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.orangeAccent,
+                    ),
+                  ),
+                  SvgPicture.asset('assets/svgs/12064756_4882468.svg')
+                ],
+              );
+            } else {
+              return Column(
+                children: [
+                  SvgPicture.asset('assets/svgs/12064756_4882468.svg'),
+                  Text(
+                    textAlign: TextAlign.start,
+                    "Hi, I'm Ajay, a Flutter developer passionate \nabout building beautiful and functional\n mobile apps. With expertise in Flutter and Firebase,\n I create seamless cross-platform experiences. Always eager to learn, \nI'm honing my skills in Dart and object-oriented\n programming. Let's build something amazing together!",
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width / 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.orangeAccent,
+                    ),
+                  ),
+                ],
+              );
+            }
+          }),
           const SizedBox(height: 30),
           Container(
             height: 40,

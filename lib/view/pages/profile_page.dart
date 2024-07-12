@@ -5,10 +5,11 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Container(
       width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width / 10, vertical: 20),
+          horizontal: width / 10, vertical: 20),
       child: Row(
         children: [
           Expanded(
@@ -18,7 +19,7 @@ class ProfilePage extends StatelessWidget {
               Text(
                 "Hi, I'm",
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width / 20,
+                    fontSize: width / 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.orangeAccent,
                     height: 1.2),
@@ -26,7 +27,7 @@ class ProfilePage extends StatelessWidget {
               Text(
                 "Ajay Krishna ",
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width / 20,
+                    fontSize: width / 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.orangeAccent,
                     height: 1.2),
@@ -60,7 +61,6 @@ class ProfilePage extends StatelessWidget {
               )
             ],
           )),
-          
         ],
       ),
     );

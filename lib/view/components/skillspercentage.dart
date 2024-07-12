@@ -24,23 +24,19 @@ class SkillsPercent extends StatelessWidget {
           text,
           style: TextStyle(fontSize: width / 40, color: Colors.orangeAccent),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: List.generate(maxSteps, (index) {
-              return Container(
-                width: width / 60,
-                height: 10,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color:
-                      index < currentStep ? Colors.orangeAccent : Colors.grey,
-                ),
-                margin: const EdgeInsets.only(right: 10),
-              );
-            }),
-          ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: List.generate(maxSteps, (index) {
+            return Container(
+              width: width / 60,
+              height: 10,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: index < currentStep ? Colors.orangeAccent : Colors.grey,
+              ),
+              margin: const EdgeInsets.only(right: 10),
+            );
+          }),
         ),
       ],
     );
