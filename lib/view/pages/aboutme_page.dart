@@ -6,10 +6,10 @@ class AboutMePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Container(
-      width: MediaQuery.of(context).size.width,
-      margin: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width / 10, vertical: 20),
+      width: width,
+      margin: EdgeInsets.symmetric(horizontal: width / 10, vertical: 20),
       child: Column(
         children: [
           Row(
@@ -19,7 +19,7 @@ class AboutMePage extends StatelessWidget {
                 textAlign: TextAlign.start,
                 "About\n Me",
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width / 20,
+                    fontSize: width / 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.orangeAccent,
                     height: 1.2),
@@ -27,7 +27,7 @@ class AboutMePage extends StatelessWidget {
               const SizedBox(width: 40),
               Icon(
                 Icons.arrow_forward,
-                size: MediaQuery.of(context).size.width / 20,
+                size: width / 20,
                 color: Colors.orangeAccent,
               )
             ],
@@ -41,12 +41,13 @@ class AboutMePage extends StatelessWidget {
                     textAlign: TextAlign.start,
                     "Hi, I'm Ajay, a Flutter developer passionate \nabout building beautiful and functional\n mobile apps. With expertise in Flutter and Firebase,\n I create seamless cross-platform experiences. Always eager to learn, \nI'm honing my skills in Dart and object-oriented\n programming. Let's build something amazing together!",
                     style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width / 60,
+                      fontSize: width / 60,
                       fontWeight: FontWeight.bold,
                       color: Colors.orangeAccent,
                     ),
                   ),
-                  SvgPicture.asset('assets/svgs/12064756_4882468.svg')
+                  SvgPicture.asset('assets/svgs/12064756_4882468.svg',
+                      width: width / 4)
                 ],
               );
             } else {
@@ -57,7 +58,7 @@ class AboutMePage extends StatelessWidget {
                     textAlign: TextAlign.start,
                     "Hi, I'm Ajay, a Flutter developer passionate \nabout building beautiful and functional\n mobile apps. With expertise in Flutter and Firebase,\n I create seamless cross-platform experiences. Always eager to learn, \nI'm honing my skills in Dart and object-oriented\n programming. Let's build something amazing together!",
                     style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width / 40,
+                      fontSize: width / 40,
                       fontWeight: FontWeight.bold,
                       color: Colors.orangeAccent,
                     ),

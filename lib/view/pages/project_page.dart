@@ -42,8 +42,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Project 1",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 70,
+                                    fontSize: width / 70,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -52,8 +51,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 100,
+                                    fontSize: width / 70,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -79,8 +77,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Project 2",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 70,
+                                    fontSize: width / 70,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -89,8 +86,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 100,
+                                    fontSize: width / 70,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -116,8 +112,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Project 3",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 70,
+                                    fontSize: width / 70,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -126,8 +121,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 100,
+                                    fontSize: width / 70,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -153,8 +147,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Project 4",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 70,
+                                    fontSize: width / 70,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -163,8 +156,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 100,
+                                    fontSize: width / 70,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -195,8 +187,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Project 1",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 70,
+                                    fontSize: width / 47,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -205,8 +196,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 100,
+                                    fontSize: width / 47,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -232,8 +222,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Project 2",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 70,
+                                    fontSize: width / 47,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -242,8 +231,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 100,
+                                    fontSize: width / 47,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -269,8 +257,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Project 3",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 70,
+                                    fontSize: width / 47,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -279,8 +266,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 100,
+                                    fontSize: width / 47,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -306,8 +292,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Project 4",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 70,
+                                    fontSize: width / 47,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),
@@ -316,8 +301,7 @@ class ProjectPage extends StatelessWidget {
                               Text(
                                 "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
                                 style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 100,
+                                    fontSize: width / 47,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orangeAccent,
                                     height: 1.2),

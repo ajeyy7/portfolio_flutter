@@ -25,7 +25,7 @@ class Homepage extends StatelessWidget {
               AboutMePage(),
               SkillsPage(),
               ProjectPage(),
-              // ContactPage()
+              ContactPage()
             ],
           ),
         ),
