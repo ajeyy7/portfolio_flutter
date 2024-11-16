@@ -10,8 +10,10 @@ class ProjectDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final screenHeight = MediaQuery.of(context).size.height;
+
     return SizedBox(
-      height: 800,
+      height: screenHeight,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

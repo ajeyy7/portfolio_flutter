@@ -11,20 +11,17 @@ class FullView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-           TopBarSection(),
-            AboutMeSection(),
-            ProjectsSection(),
-            ExperienceSection(),
-            ContactSection()
+      body: CustomScrollView(
+       
+          slivers: [
+            SliverToBoxAdapter(child: TopBarSection()),
+            SliverToBoxAdapter(child: AboutMeSection()),
+            SliverToBoxAdapter(child: ProjectsSection()),
+            SliverToBoxAdapter(child: ExperienceSection()),
+            SliverToBoxAdapter(child: ContactSection())
           ],
-        ),
+      
       ),
     );
   }
-
-
 }

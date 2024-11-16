@@ -6,8 +6,10 @@ class ContactDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      height: 800,
+        final screenHeight = MediaQuery.of(context).size.height;
+
+    return  SizedBox(
+      height: screenHeight,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

@@ -11,10 +11,12 @@ class ExperineceDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: SizedBox(
-        height: 800,
+        height: screenHeight,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -42,8 +44,8 @@ class ExperineceDesktop extends StatelessWidget {
                   '• Gained expertise in state management, local storage, and API integration using HTTP/Dio.',
             ),
             Row(
-crossAxisAlignment: CrossAxisAlignment.end,              children: [
-                
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
                 Container(
                   height: 40,
                   width: 150,

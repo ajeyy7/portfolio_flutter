@@ -6,10 +6,12 @@ class ContactMob extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return Padding(
       padding: EdgeInsets.all(8.0),
       child: SizedBox(
-        height: 800,
+        height: screenHeight,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -24,7 +26,8 @@ class ContactMob extends StatelessWidget {
                     icon: Icons.chat, label: "assets/svgs/whtsapp.svg"),
                 ContactButtonMob(
                     icon: Icons.telegram, label: "assets/svgs/gmail.svg"),
-                ContactButtonMob(icon: Icons.email, label: "assets/svgs/tele.svg"),
+                ContactButtonMob(
+                    icon: Icons.email, label: "assets/svgs/tele.svg"),
               ],
             ),
             SizedBox(height: 16),

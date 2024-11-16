@@ -11,8 +11,10 @@ class AboutMeMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
+        final screenHeight = MediaQuery.of(context).size.height;
+
+    return SizedBox(
+      height: screenHeight,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
