@@ -10,17 +10,17 @@ class ProjectMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 800,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               "<Projects/>",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
             ),
           ),
           const SizedBox(height: 20),
@@ -45,12 +45,60 @@ class ProjectMobile extends StatelessWidget {
             ],
             options: CarouselOptions(
               animateToClosest: true,
-              height: 200,
+              height: 400,
               autoPlay: true,
               enlargeCenterPage: true,
             ),
           ),
-          const SkillsSection()
+          const Column(
+            children: [
+              Text(
+                "<Skills/>",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              ),
+              SizedBox(height: 16),
+              Wrap(
+                spacing: 12,
+                children: [
+                  SkillIcon(
+                      icon: Icons.code,
+                      label: "assets/svgs/dart.svg",
+                      height: 50,
+                      width: 50),
+                  SkillIcon(
+                      icon: Icons.phone_android,
+                      label: "assets/svgs/flutter.svg",
+                      height: 50,
+                      width: 50),
+                  SkillIcon(
+                      icon: Icons.api,
+                      label: "assets/svgs/github.svg",
+                      height: 50,
+                      width: 50),
+                  SkillIcon(
+                      icon: Icons.code,
+                      label: "assets/svgs/figma.svg",
+                      height: 50,
+                      width: 50),
+                  SkillIcon(
+                      icon: Icons.phone_android,
+                      label: "assets/svgs/nodejs.svg",
+                      height: 50,
+                      width: 50),
+                  SkillIcon(
+                      icon: Icons.api,
+                      label: "assets/svgs/postman.svg",
+                      height: 50,
+                      width: 50),
+                  SkillIcon(
+                      icon: Icons.api,
+                      label: "assets/svgs/js.svg",
+                      height: 50,
+                      width: 50),
+                ],
+              ),
+            ],
+          )
         ],
       ),
     );

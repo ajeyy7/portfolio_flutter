@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:portfolio_flutter/components/aboutme_vector.dart';
 import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/main.dart';
@@ -57,13 +58,36 @@ class AboutMeMobile extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  ClipOval(
-                    child: Image.asset(
-                      'assets/svgs/img.png',
-                      width: 300,
-                      height: 300,
-                      fit: BoxFit.cover,
-                    ),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      // FadeDivider in the background
+                      const SizedBox(
+                        width: 300,
+                        height: 150,
+                        child: Column(
+                          children: [
+                            AboutMeVector(),
+                            SizedBox(height: 20),
+                            AboutMeVector(),
+                            AboutMeVector(),
+                            SizedBox(height: 10),
+                            AboutMeVector(),
+                          ],
+                        ),
+                      ),
+                      // Profile image on top
+                      SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: ClipOval(
+                          child: Image.asset(
+                            'assets/svgs/img.png',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

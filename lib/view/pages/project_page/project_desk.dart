@@ -40,7 +40,56 @@ class ProjectDesktop extends StatelessWidget {
               enlargeCenterPage: true,
             ),
           ),
-          SkillsSection()
+          const Column(
+            children: [
+              Text(
+                "<Skills/>",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SkillIcon(
+                    icon: Icons.code,
+                    label: "assets/svgs/dart.svg",
+                    height: 80,
+                    width: 80,
+                  ),
+                  SkillIcon(
+                      icon: Icons.phone_android,
+                      label: "assets/svgs/flutter.svg",
+                      height: 80,
+                      width: 80),
+                  SkillIcon(
+                      icon: Icons.api,
+                      label: "assets/svgs/github.svg",
+                      height: 80,
+                      width: 80),
+                  SkillIcon(
+                      icon: Icons.code,
+                      label: "assets/svgs/figma.svg",
+                      height: 80,
+                      width: 80),
+                  SkillIcon(
+                      icon: Icons.phone_android,
+                      label: "assets/svgs/nodejs.svg",
+                      height: 80,
+                      width: 80),
+                  SkillIcon(
+                      icon: Icons.api,
+                      label: "assets/svgs/postman.svg",
+                      height: 80,
+                      width: 80),
+                  SkillIcon(
+                      icon: Icons.api,
+                      label: "assets/svgs/js.svg",
+                      height: 80,
+                      width: 80),
+                ],
+              ),
+            ],
+          )
         ],
       ),
     );
