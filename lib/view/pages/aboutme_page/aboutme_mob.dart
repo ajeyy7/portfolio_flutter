@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/main.dart';
 import 'package:provider/provider.dart';
@@ -19,17 +19,11 @@ class AboutMeMobile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              Text(
-                '<Hello World/>',
-                style: TextStyle(
-                  fontSize: 21,
-                  color: context.read<ThemeNotifier>().isDarkMode
-                      ? charcoal
-                      : gray,
-                  fontWeight: FontWeight.w300,
-                ),
+              const ChatBubble(
+                text: '<Hello World/>',
+                bubbleColor: charcoal,
+                borderColor: gray,
               ),
-              const SizedBox(height: 40),
               Text(
                 "I'm Ajay Krishna",
                 style: TextStyle(

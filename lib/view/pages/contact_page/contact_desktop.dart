@@ -6,24 +6,46 @@ class ContactDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "<Contact/>",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        SizedBox(height: 16),
-        Column(
-          children: [
-            ContactButton(icon: Icons.chat, label: "WhatsApp"),
-            ContactButton(icon: Icons.telegram, label: "Telegram"),
-            ContactButton(icon: Icons.email, label: "Gmail"),
-          ],
-        ),
-        SizedBox(height: 16),
-        Text("//github.com/yourusername //linkedin.com/in/yourprofile"),
-      ],
+    return const SizedBox(
+      height: 800,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text(
+            "<Contact/>",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ContactButtonDeskTop(
+                icon: Icons.chat,
+                label: "assets/svgs/whtsapp.svg",
+                title: 'Whatsapp',
+              ),
+              ContactButtonDeskTop(
+                icon: Icons.telegram,
+                label: "assets/svgs/gmail.svg",
+                title: 'Gmail',
+              ),
+              ContactButtonDeskTop(
+                icon: Icons.email,
+                label: "assets/svgs/tele.svg",
+                title: 'Telegram',
+              ),
+            ],
+          ),
+          SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text("//github.com/yourusername "),
+              Text(" //linkedin.com/in/yourprofile"),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

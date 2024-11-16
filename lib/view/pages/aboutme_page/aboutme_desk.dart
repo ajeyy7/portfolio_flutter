@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/main.dart';
 import 'package:provider/provider.dart';
@@ -23,17 +24,12 @@ class AboutMeDesktop extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        '<Hello World/>',
-                        style: TextStyle(
-                          fontSize: 21,
-                          color: context.read<ThemeNotifier>().isDarkMode
-                              ? charcoal
-                              : gray,
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
                       const SizedBox(height: 10),
+                      const ChatBubble(
+                        text: '<Hello World/>',
+                        bubbleColor: charcoal,
+                        borderColor: gray,
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -99,7 +95,8 @@ class AboutMeDesktop extends StatelessWidget {
                         height: 40,
                         width: 150,
                         decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(Radius.circular(20)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(20)),
                           border: Border.all(
                               color: context.read<ThemeNotifier>().isDarkMode
                                   ? charcoal

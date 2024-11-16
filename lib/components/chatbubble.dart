@@ -1,34 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_flutter/constants/colors.dart';
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble({super.key});
+  final Color bubbleColor;
+  final Color borderColor;
+  final String text;
+  const ChatBubble({
+    super.key,
+    required this.bubbleColor,
+    required this.borderColor,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // Accessing theme colors
-    final theme = Theme.of(context);
-    final bubbleColor = theme.colorScheme.surface; // Adapts to the theme surface color
-    final borderColor = theme.colorScheme.onSurface; // Adapts to the theme border color
-
-    return Transform.translate(
-      offset: const Offset(0, 0), // No floating effect
-      child: Transform.rotate(
-        angle: 0, // No rotation effect
-        child: CustomPaint(
-          painter: ChatBubblePainter(
-            bubbleColor: bubbleColor,
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              border: Border.all(color: borderColor), // Dynamic border color
-              color: bubbleColor, // Dynamic container color
-              borderRadius: BorderRadius.circular(8),
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: const Text(
-              "Hello, I am",
-              style: TextStyle(color: gray, fontSize: 16), // Adjust text color if needed
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CustomPaint(
+        painter: ChatBubblePainter(
+          bubbleColor: bubbleColor,
+          borderColor: borderColor,
+        ),
+        child: Container(
+          // Set a fixed width or adjust padding
+          width: 170, // Increase the width of the rectangle
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Center(
+            child: Text(
+              text,
+              style: const TextStyle(color: Colors.white, fontSize: 16),
             ),
           ),
         ),
@@ -39,25 +38,52 @@ class ChatBubble extends StatelessWidget {
 
 class ChatBubblePainter extends CustomPainter {
   final Color bubbleColor;
+  final Color borderColor;
 
-  ChatBubblePainter({required this.bubbleColor});
+  ChatBubblePainter({required this.bubbleColor, required this.borderColor});
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = bubbleColor // Dynamic color for the triangle (tail)
+    final bubblePaint = Paint()
+      ..color = bubbleColor
       ..style = PaintingStyle.fill;
 
-    // Draw the triangle (chat bubble tail)
+    final borderPaint = Paint()
+      ..color = borderColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 2;
+
+    // Rectangle with a reduced border radius
+    final rectPath = Path()
+      ..addRRect(RRect.fromRectAndRadius(
+        Rect.fromLTWH(0, 0, size.width, size.height),
+        const Radius.circular(5), // Reduced border radius
+      ));
+
+    // Triangle path
     final trianglePath = Path();
-    trianglePath.moveTo(size.width / 2 - 8, size.height); // Left point of the tail
-    trianglePath.lineTo(size.width / 2, size.height + 10); // Bottom point of the tail
-    trianglePath.lineTo(size.width / 2 + 8, size.height); // Right point of the tail
+    double triangleHeight = 10;
+    double triangleBaseWidth = 16;
+
+    trianglePath.moveTo(
+        size.width / 2 - triangleBaseWidth / 2, size.height); // Bottom left
+    trianglePath.lineTo(
+        size.width / 2, size.height + triangleHeight); // Tip of triangle
+    trianglePath.lineTo(
+        size.width / 2 + triangleBaseWidth / 2, size.height); // Bottom right
     trianglePath.close();
 
-    canvas.drawPath(trianglePath, paint);
+    // Combine rectangle and triangle
+    final combinedPath =
+        Path.combine(PathOperation.union, rectPath, trianglePath);
+
+    // Draw the bubble
+    canvas.drawPath(combinedPath, bubblePaint);
+
+    // Draw the border
+    canvas.drawPath(combinedPath, borderPaint);
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
