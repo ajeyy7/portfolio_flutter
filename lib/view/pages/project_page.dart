@@ -1,321 +1,131 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portfolio_flutter/components/chatbubble.dart';
 
-class ProjectPage extends StatelessWidget {
-  const ProjectPage({super.key});
+class ProjectsSection extends StatelessWidget {
+  const ProjectsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    return Container(
-        width: width,
-        margin: EdgeInsets.symmetric(horizontal: width / 10, vertical: 20),
-        child: Column(
-          children: [
-            Text(
-              textAlign: TextAlign.start,
-              "My projects",
-              style: TextStyle(
-                  fontSize: width / 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.orangeAccent,
-                  height: 1.2),
-            ),
-            const SizedBox(height: 60),
-            LayoutBuilder(builder: (context, constriants) {
-              if (constriants.maxWidth > 600) {
-                return Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/svgs/4102879_971.svg',
-                          height: 250,
-                          width: 250,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Project 1",
-                                style: TextStyle(
-                                    fontSize: width / 70,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                              const SizedBox(height: 40),
-                              Text(
-                                "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
-                                style: TextStyle(
-                                    fontSize: width / 70,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/svgs/4102879_971.svg',
-                          height: 250,
-                          width: 250,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Project 2",
-                                style: TextStyle(
-                                    fontSize: width / 70,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                              const SizedBox(height: 40),
-                              Text(
-                                "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
-                                style: TextStyle(
-                                    fontSize: width / 70,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/svgs/4102879_971.svg',
-                          height: 250,
-                          width: 250,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Project 3",
-                                style: TextStyle(
-                                    fontSize: width / 70,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                              const SizedBox(height: 40),
-                              Text(
-                                "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
-                                style: TextStyle(
-                                    fontSize: width / 70,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/svgs/4102879_971.svg',
-                          height: 250,
-                          width: 250,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Project 4",
-                                style: TextStyle(
-                                    fontSize: width / 70,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                              const SizedBox(height: 40),
-                              Text(
-                                "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
-                                style: TextStyle(
-                                    fontSize: width / 70,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                );
-              } else {
-                return Column(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/svgs/4102879_971.svg',
-                          height: 250,
-                          width: 250,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Project 1",
-                                style: TextStyle(
-                                    fontSize: width / 47,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                              const SizedBox(height: 40),
-                              Text(
-                                "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
-                                style: TextStyle(
-                                    fontSize: width / 47,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/svgs/4102879_971.svg',
-                          height: 250,
-                          width: 250,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Project 2",
-                                style: TextStyle(
-                                    fontSize: width / 47,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                              const SizedBox(height: 40),
-                              Text(
-                                "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
-                                style: TextStyle(
-                                    fontSize: width / 47,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/svgs/4102879_971.svg',
-                          height: 250,
-                          width: 250,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Project 3",
-                                style: TextStyle(
-                                    fontSize: width / 47,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                              const SizedBox(height: 40),
-                              Text(
-                                "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
-                                style: TextStyle(
-                                    fontSize: width / 47,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        SvgPicture.asset(
-                          'assets/svgs/4102879_971.svg',
-                          height: 250,
-                          width: 250,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(18.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Project 4",
-                                style: TextStyle(
-                                    fontSize: width / 47,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                              const SizedBox(height: 40),
-                              Text(
-                                "Nlodfhgnetegtriuhgn\nfbfnhgbeitgnviehurcgyrtycgrejsgmpsj/nverangvbaeuyvrtgvfbreghyt\nbvialebtgiu/nrtavgeailgrvbfshbgrtvilurghbnonj\ndfnbvvrjbnjdanfguethh;oafuhbourfhoroguer\nuoguerbugbiueagibkergbj,jstegbsetge",
-                                style: TextStyle(
-                                    fontSize: width / 47,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orangeAccent,
-                                    height: 1.2),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                );
-              }
-            })
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const ChatBubble(),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          child: Text(
+            "<Proyectos/>",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ),
+        const SizedBox(height: 20),
+        CarouselSlider(
+          items: const [
+            ProjectCard(
+                title: "GO Deportes",
+                status: "En Proceso",
+                image: "assets/svgs/skill.webp"),
+            ProjectCard(
+                title: "donARG",
+                status: "Finalizado",
+                image: "assets/svgs/skill.webp"),
           ],
-        ));
+          options: CarouselOptions(
+            height: 400,
+            autoPlay: true,
+            enlargeCenterPage: true,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class ProjectCard extends StatelessWidget {
+  final String title;
+  final String status;
+  final String image;
+
+  const ProjectCard({
+    super.key,
+    required this.title,
+    required this.status,
+    required this.image,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 300,
+      width: 300,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Image.asset(image, fit: BoxFit.cover),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Chip(
+                  label: Text(status),
+                  backgroundColor:
+                      status == "Finalizado" ? Colors.green : Colors.red,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SkillsSection extends StatelessWidget {
+  const SkillsSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      children: [
+        Text(
+          "<Skills/>",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: 16),
+        Wrap(
+          spacing: 12,
+          children: [
+            SkillIcon(icon: Icons.code, label: "Dart"),
+            SkillIcon(icon: Icons.phone_android, label: "Flutter"),
+            SkillIcon(icon: Icons.api, label: "API Integration"),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class SkillIcon extends StatelessWidget {
+  final IconData icon;
+  final String label;
+
+  const SkillIcon({super.key, required this.icon, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 48),
+        Text(label),
+      ],
+    );
   }
 }

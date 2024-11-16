@@ -1,22 +1,65 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter/constants/colors.dart';
+import 'package:portfolio_flutter/view/pages/contact_page.dart';
 import 'package:portfolio_flutter/view/pages/homepage.dart';
+import 'package:portfolio_flutter/view/pages/project_page.dart';
+import 'package:portfolio_flutter/view_model/experince_page.dart';
+
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  // Define your themes
+  final ThemeData lightTheme = ThemeData(
+    fontFamily: 'Montserrat',
+    scaffoldBackgroundColor: lightGray,
+    primarySwatch: Colors.blue,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    brightness: Brightness.light, // Light mode settings
+  );
+
+  final ThemeData darkTheme = ThemeData(
+    fontFamily: 'Montserrat',
+    scaffoldBackgroundColor: charcoal,
+    primarySwatch: Colors.blue,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
+    brightness: Brightness.dark, // Dark mode settings
+  );
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          scaffoldBackgroundColor: Colors.black87,
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: Homepage(),
+    return ChangeNotifierProvider(
+      create: (_) => ThemeNotifier(),
+      child: Consumer<ThemeNotifier>(
+        builder: (context, themeNotifier, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: lightTheme, // Light theme as default
+            darkTheme: darkTheme, // Dark theme settings
+            themeMode: themeNotifier.isDarkMode
+                ? ThemeMode.dark
+                : ThemeMode.light, // Control theme dynamically
+            home: const Homepage(),
+          );
+        },
+      ),
     );
+  }
+}
+
+class ThemeNotifier extends ChangeNotifier {
+  bool _isDarkMode = false;
+
+  bool get isDarkMode => _isDarkMode;
+
+  // Toggle theme mode
+  void toggleTheme() {
+    _isDarkMode = !_isDarkMode;
+    notifyListeners();
   }
 }
