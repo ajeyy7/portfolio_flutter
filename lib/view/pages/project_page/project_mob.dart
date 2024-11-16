@@ -11,38 +11,41 @@ class ProjectMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const ChatBubble(),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          child: Text(
-            "<Projects/>",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    return Container(
+      height: 800,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          const ChatBubble(),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Text(
+              "<Projects/>",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
           ),
-        ),
-        const SizedBox(height: 20),
-        CarouselSlider(
-          items: const [
-            ProjectCard(
-                title: "GO Deportes",
-                status: "En Proceso",
-                image: "assets/svgs/skill.webp"),
-            ProjectCard(
-                title: "donARG",
-                status: "Finalizado",
-                image: "assets/svgs/skill.webp"),
-          ],
-          options: CarouselOptions(
-            height: 200,
-            autoPlay: true,
-            enlargeCenterPage: true,
+          const SizedBox(height: 20),
+          CarouselSlider(
+            items: const [
+              ProjectCard(
+                  title: "GO Deportes",
+                  status: "En Proceso",
+                  image: "assets/svgs/skill.webp"),
+              ProjectCard(
+                  title: "donARG",
+                  status: "Finalizado",
+                  image: "assets/svgs/skill.webp"),
+            ],
+            options: CarouselOptions(
+              height: 200,
+              autoPlay: true,
+              enlargeCenterPage: true,
+            ),
           ),
-        ),
-
-        const SkillsSection()
-      ],
+          const SkillsSection()
+        ],
+      ),
     );
   }
 }

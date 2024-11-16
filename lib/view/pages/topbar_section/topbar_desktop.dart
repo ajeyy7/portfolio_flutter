@@ -18,10 +18,10 @@ class DesktopTopbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const TopBarTextButton(title: 'About Me'),
-            const TopBarTextButton(title: 'Portfolio'),
-            const TopBarTextButton(title: 'Testimonials'),
-            const TopBarTextButton(title: 'Blog'),
-            const TopBarTextButton(title: 'Contact Us'),
+            const TopBarTextButton(title: 'Projects'),
+            const TopBarTextButton(title: 'Experience'),
+            const TopBarTextButton(title: 'Skills'),
+            const TopBarTextButton(title: 'Contact Me'),
             const SizedBox(width: 200),
             InkWell(
               onTap: () {
