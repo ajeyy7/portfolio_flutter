@@ -1,122 +1,11 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/main.dart';
 import 'package:provider/provider.dart';
 
-class PortfolioPage extends StatefulWidget {
-  const PortfolioPage({super.key});
-
-  @override
-  State<PortfolioPage> createState() => _PortfolioPageState();
-}
-
-class _PortfolioPageState extends State<PortfolioPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          if (constraints.maxWidth > 600) {
-            return AboutMe();
-          } else {
-            return _buildMobileView();
-          }
-        },
-      ),
-    );
-  }
-
-
-
-  Widget _buildMobileView() {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ClipOval(
-            child: Image.asset(
-              'assets/svgs/img.png',
-              width: 150,
-              height: 150,
-              fit: BoxFit.cover,
-            ),
-          ),
-          const SizedBox(height: 20),
-          const Text(
-            "Hola Mundo!",
-            style: TextStyle(
-              fontSize: 18,
-              color: lightGray,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-          const SizedBox(height: 10),
-          const Text(
-            "Soy Gabriel,\nDesarrollador Backend",
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: white,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.gite, color: lightGray),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.link, color: lightGray),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
-          Container(
-            height: 40,
-            width: 110,
-            decoration: BoxDecoration(
-              border: Border.all(color: charcoal),
-            ),
-            child: const Center(
-              child: Text(
-                'Contact Me',
-                style: TextStyle(color: charcoal),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNavItem(String title) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: TextButton(
-        onPressed: () {
-          if (kDebugMode) {
-            print("$title clicked");
-          }
-        },
-        child: Text(
-          title,
-          style: TextStyle(
-              color:
-                  context.read<ThemeNotifier>().isDarkMode ? charcoal : gray),
-        ),
-      ),
-    );
-  }
-}
-  class AboutMe extends StatelessWidget {
-  const AboutMe({super.key});
+class AboutMeDesktop extends StatelessWidget {
+  const AboutMeDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -124,10 +13,10 @@ class _PortfolioPageState extends State<PortfolioPage> {
       padding: const EdgeInsets.all(32.0),
       child: Column(
         children: [
-         
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
                   child: Column(
@@ -210,7 +99,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                         height: 40,
                         width: 150,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          borderRadius: const BorderRadius.all(Radius.circular(20)),
                           border: Border.all(
                               color: context.read<ThemeNotifier>().isDarkMode
                                   ? charcoal
@@ -258,4 +147,5 @@ class _PortfolioPageState extends State<PortfolioPage> {
         ],
       ),
     );
-  }}
+  }
+}

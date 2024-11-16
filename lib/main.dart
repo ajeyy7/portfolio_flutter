@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
-import 'package:portfolio_flutter/view/pages/contact_page.dart';
-import 'package:portfolio_flutter/view/pages/homepage.dart';
-import 'package:portfolio_flutter/view/pages/project_page.dart';
-import 'package:portfolio_flutter/view_model/experince_page.dart';
+import 'package:portfolio_flutter/view/pages/fullview.dart';
+
 
 import 'package:provider/provider.dart';
 
@@ -44,7 +42,7 @@ class MyApp extends StatelessWidget {
             themeMode: themeNotifier.isDarkMode
                 ? ThemeMode.dark
                 : ThemeMode.light, // Control theme dynamically
-            home: const Homepage(),
+            home: const FullView(),
           );
         },
       ),
