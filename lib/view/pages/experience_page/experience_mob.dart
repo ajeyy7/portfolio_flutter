@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter/components/commonicon_button.dart';
 import 'package:portfolio_flutter/components/fade_divider.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
@@ -11,7 +12,8 @@ class ExperienceMob extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-            final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
     return SizedBox(
       height: screenHeight,
@@ -21,12 +23,12 @@ class ExperienceMob extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
+              Text(
                 'Experience',
                 style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: isDarkMode ? lightGray : charcoal),
               ),
               const SizedBox(height: 16),
               const FadeDivider(),
@@ -47,40 +49,15 @@ class ExperienceMob extends StatelessWidget {
                 duration: 'Aug 2023 - Feb 2024',
               ),
               const FadeDivider(),
-              Row(
+              const Row(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                    height: 40,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      border: Border.all(
-                          color: context.read<ThemeNotifier>().isDarkMode
-                              ? charcoal
-                              : gray),
-                    ),
-                    child: Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'CV',
-                            style: TextStyle(
-                                color: context.read<ThemeNotifier>().isDarkMode
-                                    ? charcoal
-                                    : gray),
-                          ),
-                          Icon(Icons.download,
-                              color: context.read<ThemeNotifier>().isDarkMode
-                                  ? charcoal
-                                  : gray)
-                        ],
-                      ),
-                    ),
-                  ),
+                  CommonIconButton(
+                      name: 'CV',
+                      icon: Icons.arrow_downward_rounded,
+                      width: 150,
+                      height: 40,
+                      borderRadius: 20),
                 ],
               ),
             ],
@@ -104,25 +81,28 @@ class ExperienceItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           company,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16.0,
-          ),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16.0,
+              color: isDarkMode ? lightGray : charcoal),
         ),
         const SizedBox(height: 4.0),
         Text(
           duration,
-          style: const TextStyle(color: Colors.grey),
+          style: TextStyle(color: isDarkMode ? lightGray : charcoal),
         ),
         const SizedBox(height: 8.0),
         Text(
           description,
-          style: const TextStyle(height: 1.5),
+          style:
+              TextStyle(height: 1.5, color: isDarkMode ? lightGray : charcoal),
         ),
       ],
     );

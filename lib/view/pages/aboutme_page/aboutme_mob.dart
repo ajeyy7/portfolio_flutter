@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio_flutter/components/aboutme_vector.dart';
 import 'package:portfolio_flutter/components/chatbubble.dart';
+import 'package:portfolio_flutter/components/commonicon_button.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
@@ -11,8 +12,8 @@ class AboutMeMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final screenHeight = MediaQuery.of(context).size.height;
-       final screenWidth= MediaQuery.of(context).size.width ; 
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
     return SizedBox(
       height: screenHeight,
@@ -23,19 +24,17 @@ class AboutMeMobile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              const ChatBubble(
+              ChatBubble(
                 text: '<Hello World/>',
-                bubbleColor: charcoal,
-                borderColor: gray,
+                bubbleColor: isDarkMode ? charcoal : lightGray,
+                borderColor: isDarkMode ? lightGray : charcoal,
               ),
               Text(
                 "I'm Ajay Krishna",
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w500,
-                  color: context.read<ThemeNotifier>().isDarkMode
-                      ? charcoal
-                      : gray,
+                  color: isDarkMode ? lightGray : charcoal,
                 ),
               ),
               Text(
@@ -43,9 +42,7 @@ class AboutMeMobile extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: context.read<ThemeNotifier>().isDarkMode
-                      ? charcoal
-                      : gray,
+                  color: isDarkMode ? lightGray : charcoal,
                 ),
               ),
               Text(
@@ -53,9 +50,7 @@ class AboutMeMobile extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: context.read<ThemeNotifier>().isDarkMode
-                      ? charcoal
-                      : gray,
+                  color: isDarkMode ? lightGray : charcoal,
                 ),
               ),
               Row(
@@ -102,16 +97,14 @@ class AboutMeMobile extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 colorFilter: ColorFilter.mode(
-                    context.read<ThemeNotifier>().isDarkMode ? charcoal : gray,
-                    BlendMode.srcIn),
+                    isDarkMode ? lightGray : charcoal, BlendMode.srcIn),
                 'assets/svgs/github.svg',
                 height: 50,
                 width: 50,
               ),
               SvgPicture.asset(
                 colorFilter: ColorFilter.mode(
-                    context.read<ThemeNotifier>().isDarkMode ? charcoal : gray,
-                    BlendMode.srcIn),
+                    isDarkMode ? lightGray : charcoal, BlendMode.srcIn),
                 'assets/svgs/linkdein.svg',
                 height: 47,
                 width: 47,
@@ -119,36 +112,12 @@ class AboutMeMobile extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 20),
-          Container(
-            height: 40,
-            width: 150,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(20)),
-              border: Border.all(
-                  color: context.read<ThemeNotifier>().isDarkMode
-                      ? charcoal
-                      : gray),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Contact Me',
-                    style: TextStyle(
-                        color: context.read<ThemeNotifier>().isDarkMode
-                            ? charcoal
-                            : gray),
-                  ),
-                  Icon(Icons.arrow_downward_sharp,
-                      color: context.read<ThemeNotifier>().isDarkMode
-                          ? charcoal
-                          : gray)
-                ],
-              ),
-            ),
-          ),
+          const CommonIconButton(
+              name: 'Contact Me',
+              icon: Icons.arrow_downward_rounded,
+              width: 150,
+              height: 40,
+              borderRadius: 20),
         ],
       ),
     );

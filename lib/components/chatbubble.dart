@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter/constants/colors.dart';
+import 'package:portfolio_flutter/view_model/themes.dart';
+import 'package:provider/provider.dart';
 
 class ChatBubble extends StatelessWidget {
   final Color bubbleColor;
@@ -13,6 +16,8 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: CustomPaint(
@@ -21,13 +26,13 @@ class ChatBubble extends StatelessWidget {
           borderColor: borderColor,
         ),
         child: Container(
-          // Set a fixed width or adjust padding
-          width: 170, // Increase the width of the rectangle
+          width: 170,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Center(
             child: Text(
               text,
-              style: const TextStyle(color: Colors.white, fontSize: 16),
+              style: TextStyle(
+                  color: isDarkMode ? lightGray : charcoal, fontSize: 16),
             ),
           ),
         ),

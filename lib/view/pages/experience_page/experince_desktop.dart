@@ -12,6 +12,7 @@ class ExperineceDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -20,12 +21,12 @@ class ExperineceDesktop extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            const Text(
+            Text(
               'Experience',
               style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: isDarkMode ? lightGray : charcoal),
             ),
             const SizedBox(height: 16),
             const WorkExperienceCard(

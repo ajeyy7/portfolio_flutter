@@ -12,6 +12,8 @@ class ContactButtonMob extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -19,11 +21,11 @@ class ContactButtonMob extends StatelessWidget {
         width: 250,
         decoration: BoxDecoration(
             border: Border.all(color: charcoal),
-            borderRadius: BorderRadius.all(Radius.circular(20))),
+            borderRadius: const BorderRadius.all(Radius.circular(20))),
         child: SizedBox(
           child: SvgPicture.asset(
             colorFilter: ColorFilter.mode(
-                context.read<ThemeNotifier>().isDarkMode ? charcoal : gray,
+                isDarkMode ? lightGray:charcoal,
                 BlendMode.srcIn),
             label,
             height: 40,

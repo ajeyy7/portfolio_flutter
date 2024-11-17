@@ -3,18 +3,13 @@ import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
 
-class MobileTopbar extends StatefulWidget {
+class MobileTopbar extends StatelessWidget {
   const MobileTopbar({super.key});
 
   @override
-  _MobileTopbarState createState() => _MobileTopbarState();
-}
-
-class _MobileTopbarState extends State<MobileTopbar> {
-  bool _isMenuVisible = false;
-
-  @override
   Widget build(BuildContext context) {
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
+
     return Column(
       children: [
         Container(
@@ -23,26 +18,23 @@ class _MobileTopbarState extends State<MobileTopbar> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: const Icon(
+                icon: Icon(
                   Icons.sort,
-                  color: Colors.white,
+                  color: isDarkMode ? lightGray : charcoal,
                   size: 40,
-                ), // Menu icon
+                ),
                 onPressed: () {
-                  setState(() {
-                    _isMenuVisible = !_isMenuVisible;
-                  });
+                      Provider.of<ThemeNotifier>(context, listen: false).toggleMenu();
+
                 },
               ),
               InkWell(
                 onTap: () {
-                  context.read<ThemeNotifier>().toggleTheme();
+    Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
                 },
                 child: Icon(
-                  context.read<ThemeNotifier>().isDarkMode
-                      ? Icons.light_mode
-                      : Icons.dark_mode,
-                  color: Colors.white,
+                  isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                  color: isDarkMode ? lightGray : charcoal,
                   size: 40,
                 ),
               ),
@@ -50,47 +42,30 @@ class _MobileTopbarState extends State<MobileTopbar> {
           ),
         ),
         Visibility(
-          visible: _isMenuVisible,
+          visible: context.watch<ThemeNotifier>().isMenuShowing,
           child: Container(
-            color: context.read<ThemeNotifier>().isDarkMode
-                ? lightGray
-                : charcoal, // Background for the dropdown menu
+            color: isDarkMode ? lightGray : charcoal,
             child: Column(
               children: [
                 MenuItem(
                   title: 'About Me',
-                  onTap: () {
-                    // Navigate or perform actions
-                    setState(() => _isMenuVisible = false);
-                  },
+                  onTap: () {},
                 ),
                 MenuItem(
                   title: 'Portfolio',
-                  onTap: () {
-                    // Navigate or perform actions
-                    setState(() => _isMenuVisible = false);
-                  },
+                  onTap: () {},
                 ),
                 MenuItem(
                   title: 'Testimonials',
-                  onTap: () {
-                    // Navigate or perform actions
-                    setState(() => _isMenuVisible = false);
-                  },
+                  onTap: () {},
                 ),
                 MenuItem(
                   title: 'Blog',
-                  onTap: () {
-                    // Navigate or perform actions
-                    setState(() => _isMenuVisible = false);
-                  },
+                  onTap: () {},
                 ),
                 MenuItem(
                   title: 'Contact Us',
-                  onTap: () {
-                    // Navigate or perform actions
-                    setState(() => _isMenuVisible = false);
-                  },
+                  onTap: () {},
                 ),
               ],
             ),
@@ -109,6 +84,8 @@ class MenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
+
     return GestureDetector(
       onTap: onTap,
       child: Padding(
@@ -118,10 +95,7 @@ class MenuItem extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                  color: context.read<ThemeNotifier>().isDarkMode
-                      ? charcoal
-                      : lightGray,
-                  fontSize: 16),
+                  color: isDarkMode ? lightGray : charcoal, fontSize: 16),
             ),
           ],
         ),

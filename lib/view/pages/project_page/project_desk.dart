@@ -1,7 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/components/project_card.dart';
+import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view/pages/skills_page/skills_page.dart';
+import 'package:portfolio_flutter/view_model/themes.dart';
+import 'package:provider/provider.dart';
 
 class ProjectDesktop extends StatelessWidget {
   const ProjectDesktop({
@@ -11,17 +14,18 @@ class ProjectDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         final screenHeight = MediaQuery.of(context).size.height;
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
     return SizedBox(
       height: screenHeight,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
+           Padding(
+            padding:const  EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               "<Projects/>",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: isDarkMode?lightGray:charcoal),
             ),
           ),
           const SizedBox(height: 20),
@@ -42,14 +46,17 @@ class ProjectDesktop extends StatelessWidget {
               enlargeCenterPage: true,
             ),
           ),
-          const Column(
+           Column(
             children: [
-              Text(
-                "<Skills/>",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  "<Skills/>",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: isDarkMode?lightGray:charcoal),
+                ),
               ),
-              SizedBox(height: 16),
-              Row(
+              const SizedBox(height: 16),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SkillIcon(

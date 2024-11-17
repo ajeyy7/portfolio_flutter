@@ -6,33 +6,11 @@ import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-
-  final ThemeData lightTheme = ThemeData(
-      fontFamily: 'Montserrat',
-      scaffoldBackgroundColor: lightGray,
-      primarySwatch: Colors.blue,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-      brightness: Brightness.light,
-      textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: charcoal),
-          bodyMedium: TextStyle(color: gray)),
-      iconTheme: const IconThemeData(color: charcoal));
-
-  final ThemeData darkTheme = ThemeData(
-      fontFamily: 'Montserrat',
-      scaffoldBackgroundColor: charcoal,
-      primarySwatch: Colors.blue,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-      brightness: Brightness.dark,
-      textTheme: const TextTheme(
-          bodyLarge: TextStyle(color: lightGray),
-          bodyMedium: TextStyle(color: white)),
-      iconTheme: const IconThemeData(color: lightGray));
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

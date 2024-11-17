@@ -1,7 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/components/project_card.dart';
+import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view/pages/skills_page/skills_page.dart';
+import 'package:portfolio_flutter/view_model/themes.dart';
+import 'package:provider/provider.dart';
 
 class ProjectMobile extends StatelessWidget {
   const ProjectMobile({
@@ -11,6 +14,7 @@ class ProjectMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         final screenHeight = MediaQuery.of(context).size.height;
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
     return SizedBox(
       height: screenHeight,
@@ -18,11 +22,11 @@ class ProjectMobile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
+           Padding(
+            padding:const  EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               "<Projects/>",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600,color: isDarkMode?lightGray:charcoal),
             ),
           ),
           const SizedBox(height: 20),
@@ -52,14 +56,17 @@ class ProjectMobile extends StatelessWidget {
               enlargeCenterPage: true,
             ),
           ),
-          const Column(
+           Column(
             children: [
-              Text(
-                "<Skills/>",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              Padding(
+            padding:const  EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  "<Skills/>",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600,color: isDarkMode?lightGray:charcoal),
+                ),
               ),
-              SizedBox(height: 16),
-              Wrap(
+              const SizedBox(height: 16),
+              const Wrap(
                 spacing: 12,
                 children: [
                   SkillIcon(

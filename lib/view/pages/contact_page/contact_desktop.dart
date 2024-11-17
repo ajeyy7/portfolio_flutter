@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/components/contact_button.dart';
+import 'package:portfolio_flutter/constants/colors.dart';
+import 'package:portfolio_flutter/view_model/themes.dart';
+import 'package:provider/provider.dart';
 
 class ContactDesktop extends StatelessWidget {
   const ContactDesktop({super.key});
@@ -7,18 +10,19 @@ class ContactDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         final screenHeight = MediaQuery.of(context).size.height;
+        final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
     return  SizedBox(
       height: screenHeight,
-      child: Column(
+      child:  Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
             "<Contact/>",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: isDarkMode?lightGray:charcoal),
           ),
-          SizedBox(height: 16),
-          Row(
+          const SizedBox(height: 16),
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ContactButtonDeskTop(
@@ -38,12 +42,12 @@ class ContactDesktop extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text("//github.com/yourusername "),
-              Text(" //linkedin.com/in/yourprofile"),
+              Text("https://github.com/ajeyy7",style: TextStyle(color: isDarkMode?lightGray:charcoal)),
+              Text("www.linkedin.com/in/ajay-krishna-36193018b",style: TextStyle(color: isDarkMode?lightGray:charcoal)),
             ],
           ),
         ],

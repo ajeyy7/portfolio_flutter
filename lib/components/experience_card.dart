@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
+import 'package:portfolio_flutter/view_model/themes.dart';
+import 'package:provider/provider.dart';
 
 class WorkExperienceCard extends StatelessWidget {
   final String title;
@@ -15,14 +17,9 @@ class WorkExperienceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const textColor = gray;
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
-    return Card(
-      elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
-      color: Theme.of(context).scaffoldBackgroundColor,
+    return SizedBox(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -30,24 +27,26 @@ class WorkExperienceCard extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: textColor,
+                color: isDarkMode ? lightGray : charcoal,
               ),
             ),
             const SizedBox(height: 8),
             Text(
               duration,
-              style: const TextStyle(
-                  fontSize: 18, fontStyle: FontStyle.italic, color: textColor),
+              style: TextStyle(
+                  fontSize: 18,
+                  fontStyle: FontStyle.italic,
+                  color: isDarkMode ? lightGray : charcoal),
             ),
             const SizedBox(height: 8),
             Text(
               description,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 20,
-                color: textColor,
+                color: isDarkMode ? lightGray : charcoal,
               ),
             ),
           ],

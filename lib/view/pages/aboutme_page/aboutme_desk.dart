@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio_flutter/components/aboutme_vector.dart';
 import 'package:portfolio_flutter/components/chatbubble.dart';
+import 'package:portfolio_flutter/components/commonicon_button.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +14,7 @@ class AboutMeDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
     return Padding(
       padding: const EdgeInsets.all(32.0),
@@ -31,10 +33,10 @@ class AboutMeDesktop extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const SizedBox(height: 10),
-                        const ChatBubble(
+                        ChatBubble(
                           text: '<Hello World/>',
-                          bubbleColor: charcoal,
-                          borderColor: gray,
+                          bubbleColor: isDarkMode ? charcoal : lightGray,
+                          borderColor: isDarkMode ? lightGray : charcoal,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,9 +46,7 @@ class AboutMeDesktop extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: screenWidth * 0.04,
                                 fontWeight: FontWeight.w500,
-                                color: context.read<ThemeNotifier>().isDarkMode
-                                    ? charcoal
-                                    : gray,
+                                color: isDarkMode ? lightGray : charcoal,
                               ),
                             ),
                             Text(
@@ -54,9 +54,7 @@ class AboutMeDesktop extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: screenWidth * 0.04,
                                 fontWeight: FontWeight.bold,
-                                color: context.read<ThemeNotifier>().isDarkMode
-                                    ? charcoal
-                                    : gray,
+                                color: isDarkMode ? lightGray : charcoal,
                               ),
                             ),
                             Text(
@@ -64,9 +62,7 @@ class AboutMeDesktop extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: screenWidth * 0.04,
                                 fontWeight: FontWeight.bold,
-                                color: context.read<ThemeNotifier>().isDarkMode
-                                    ? charcoal
-                                    : gray,
+                                color: isDarkMode ? lightGray : charcoal,
                               ),
                             ),
                           ],
@@ -76,9 +72,7 @@ class AboutMeDesktop extends StatelessWidget {
                           children: [
                             SvgPicture.asset(
                               colorFilter: ColorFilter.mode(
-                                  context.read<ThemeNotifier>().isDarkMode
-                                      ? charcoal
-                                      : gray,
+                                  isDarkMode ? lightGray : charcoal,
                                   BlendMode.srcIn),
                               'assets/svgs/github.svg',
                               height: 50,
@@ -86,9 +80,7 @@ class AboutMeDesktop extends StatelessWidget {
                             ),
                             SvgPicture.asset(
                               colorFilter: ColorFilter.mode(
-                                  context.read<ThemeNotifier>().isDarkMode
-                                      ? charcoal
-                                      : gray,
+                                  isDarkMode ? lightGray : charcoal,
                                   BlendMode.srcIn),
                               'assets/svgs/linkdein.svg',
                               height: 47,
@@ -97,51 +89,21 @@ class AboutMeDesktop extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 20),
-                        Container(
-                          height: 40,
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                            border: Border.all(
-                                color: context.read<ThemeNotifier>().isDarkMode
-                                    ? charcoal
-                                    : gray),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 4),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Contact Me',
-                                  style: TextStyle(
-                                      color: context
-                                              .read<ThemeNotifier>()
-                                              .isDarkMode
-                                          ? charcoal
-                                          : gray),
-                                ),
-                                Icon(Icons.arrow_downward_sharp,
-                                    color:
-                                        context.read<ThemeNotifier>().isDarkMode
-                                            ? charcoal
-                                            : gray)
-                              ],
-                            ),
-                          ),
-                        ),
+                        const CommonIconButton(
+                            name: 'Contact Me',
+                            icon: Icons.arrow_downward_rounded,
+                            width: 150,
+                            height: 40,
+                            borderRadius: 20),
                       ],
                     ),
                   ),
                   Stack(
                     alignment: Alignment.center,
                     children: [
-                      // FadeDivider in the background
-                      const SizedBox(
-                        width: 500, // Width of divider behind the image
-                        child: Column(
+                      SizedBox(
+                        width: screenWidth * 0.4,
+                        child: const Column(
                           children: [
                             AboutMeVector(),
                             SizedBox(height: 50),
@@ -152,10 +114,9 @@ class AboutMeDesktop extends StatelessWidget {
                           ],
                         ),
                       ),
-                      // Profile image on top
                       SizedBox(
-                        width: 480,
-                        height: 480,
+                        width: screenWidth * 0.4,
+                        height: screenWidth * 0.4,
                         child: ClipOval(
                           child: Image.asset(
                             'assets/svgs/img.png',
