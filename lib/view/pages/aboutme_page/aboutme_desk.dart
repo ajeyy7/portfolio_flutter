@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio_flutter/components/aboutme_vector.dart';
 import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
-import 'package:portfolio_flutter/main.dart';
+import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
 
 class AboutMeDesktop extends StatelessWidget {
@@ -12,6 +12,7 @@ class AboutMeDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
 
     return Padding(
       padding: const EdgeInsets.all(32.0),
@@ -41,7 +42,7 @@ class AboutMeDesktop extends StatelessWidget {
                             Text(
                               "I'm Ajay Krishna",
                               style: TextStyle(
-                                fontSize: 80,
+                                fontSize: screenWidth * 0.04,
                                 fontWeight: FontWeight.w500,
                                 color: context.read<ThemeNotifier>().isDarkMode
                                     ? charcoal
@@ -51,7 +52,7 @@ class AboutMeDesktop extends StatelessWidget {
                             Text(
                               "Flutter",
                               style: TextStyle(
-                                fontSize: 80,
+                                fontSize: screenWidth * 0.04,
                                 fontWeight: FontWeight.bold,
                                 color: context.read<ThemeNotifier>().isDarkMode
                                     ? charcoal
@@ -61,7 +62,7 @@ class AboutMeDesktop extends StatelessWidget {
                             Text(
                               "Developer",
                               style: TextStyle(
-                                fontSize: 80,
+                                fontSize: screenWidth * 0.04,
                                 fontWeight: FontWeight.bold,
                                 color: context.read<ThemeNotifier>().isDarkMode
                                     ? charcoal

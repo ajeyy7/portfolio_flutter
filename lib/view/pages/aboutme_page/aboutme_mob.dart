@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio_flutter/components/aboutme_vector.dart';
 import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
-import 'package:portfolio_flutter/main.dart';
+import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
 
 class AboutMeMobile extends StatelessWidget {
@@ -12,6 +12,7 @@ class AboutMeMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         final screenHeight = MediaQuery.of(context).size.height;
+       final screenWidth= MediaQuery.of(context).size.width ; 
 
     return SizedBox(
       height: screenHeight,

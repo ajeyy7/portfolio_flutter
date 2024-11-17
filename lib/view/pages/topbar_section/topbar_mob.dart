@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
-import 'package:portfolio_flutter/main.dart';
+import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
 
 class MobileTopbar extends StatefulWidget {
