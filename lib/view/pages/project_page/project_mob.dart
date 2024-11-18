@@ -30,88 +30,83 @@ class ProjectMobile extends StatelessWidget {
       child: SizedBox(
         height: screenHeight,
         child: Column(
-         mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             ChatBubble(
-                text: '<Projects/>',
-                bubbleColor: isDarkMode ? charcoal : lightGray,
-                borderColor: isDarkMode ? lightGray : charcoal,
-              ),
+            ChatBubble(
+              text: '<Projects/>',
+              bubbleColor: isDarkMode ? charcoal : lightGray,
+              borderColor: isDarkMode ? lightGray : charcoal,
+            ),
             const SizedBox(height: 20),
-          Stack(
-                alignment: Alignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        icon: Icon(Icons.arrow_back_ios,
-                            color: isDarkMode ? lightGray : charcoal),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(Icons.arrow_forward_ios,
-                            color: isDarkMode ? lightGray : charcoal),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                  CarouselSlider.builder(
-                    carouselController: corosalController,
-                    itemCount: projects.length,
-                    itemBuilder: (context, index, realIndex) {
-                      final project = projects[index];
-                      return FlipCard(
-                        onTapFlipping: true,
-                        frontWidget: InkWell(
-                          onTap: () => flipController.flipcard,
-                          child: ProjectCard(
-                            title: project['title']!,
-                            image: project['image']!,
-                          ),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.arrow_back_ios,
+                          color: isDarkMode ? lightGray : charcoal),
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.arrow_forward_ios,
+                          color: isDarkMode ? lightGray : charcoal),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                CarouselSlider.builder(
+                  carouselController: corosalController,
+                  itemCount: projects.length,
+                  itemBuilder: (context, index, realIndex) {
+                    final project = projects[index];
+                    return FlipCard(
+                      onTapFlipping: true,
+                      frontWidget: InkWell(
+                        onTap: () => flipController.flipcard,
+                        child: ProjectCard(
+                          title: project['title']!,
+                          image: project['image']!,
                         ),
-                        backWidget: InkWell(
-                          onTap: () => flipController.flipcard,
-                          child: Container(
-                            padding: const EdgeInsets.all(16.0),
-                            color: isDarkMode ? charcoal : lightGray,
-                            child: Text(
-                              project['description']!,
-                              style: TextStyle(
-                                color: isDarkMode ? lightGray : charcoal,
-                                fontSize: 16,
-                              ),
+                      ),
+                      backWidget: InkWell(
+                        onTap: () => flipController.flipcard,
+                        child: Container(
+                          padding: const EdgeInsets.all(16.0),
+                          color: isDarkMode ? charcoal : lightGray,
+                          child: Text(
+                            project['description']!,
+                            style: TextStyle(
+                              color: isDarkMode ? lightGray : charcoal,
+                              fontSize: 16,
                             ),
                           ),
                         ),
-                        controller: flipController,
-                        rotateSide: RotateSide.right,
-                      );
+                      ),
+                      controller: flipController,
+                      rotateSide: RotateSide.right,
+                    );
+                  },
+                  options: CarouselOptions(
+                    height: 400,
+                    animateToClosest: true,
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    onPageChanged: (index, reason) {
+                      projectProvider.setCurrentIndex(index);
                     },
-                    options: CarouselOptions(
-                      height: 400,
-                      animateToClosest: true,
-                      autoPlay: true,
-                      enlargeCenterPage: true,
-                      onPageChanged: (index, reason) {
-                        projectProvider.setCurrentIndex(index);
-                      },
-                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
+            ),
             Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Text(
-                    "<Skills/>",
-                    style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600,
-                        color: isDarkMode ? lightGray : charcoal),
-                  ),
+                ChatBubble(
+                  text: '<Skills/>',
+                  bubbleColor: isDarkMode ? charcoal : lightGray,
+                  borderColor: isDarkMode ? lightGray : charcoal,
                 ),
                 const SizedBox(height: 16),
                 const Wrap(
