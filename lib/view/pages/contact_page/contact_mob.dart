@@ -4,6 +4,7 @@ import 'package:portfolio_flutter/components/contact_button.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactMob extends StatelessWidget {
   const ContactMob({super.key});
@@ -20,19 +21,30 @@ class ContactMob extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            ChatBubble(
-              text: '<Contact/>',
-              bubbleColor: isDarkMode ? charcoal : lightGray,
-              borderColor: isDarkMode ? lightGray : charcoal,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ChatBubble(
+                  text: '<Contact/>',
+                  bubbleColor: isDarkMode ? charcoal : lightGray,
+                  borderColor: isDarkMode ? lightGray : charcoal,
+                ),
+              ],
             ),
             const SizedBox(height: 16),
-            const Column(
+            Column(
               children: [
-                ContactButtonMob(
-                    icon: Icons.chat, label: "assets/svgs/whtsapp.svg"),
-                ContactButtonMob(
-                    icon: Icons.telegram, label: "assets/svgs/gmail.svg"),
-                ContactButtonMob(
+                InkWell(
+                  onTap: () => launchUrl(Uri.https('wa.me', '/9846572149')),
+                  child: const ContactButtonMob(
+                      icon: Icons.chat, label: "assets/svgs/whtsapp.svg"),
+                ),
+                InkWell(
+                  onTap: ()=>launchUrl(Uri.parse('mailto:ajaykrishna9872@gmail.com?subject=Hi')),
+                  child: const ContactButtonMob(
+                      icon: Icons.telegram, label: "assets/svgs/gmail.svg"),
+                ),
+                const ContactButtonMob(
                     icon: Icons.email, label: "assets/svgs/tele.svg"),
               ],
             ),

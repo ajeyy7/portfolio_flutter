@@ -9,6 +9,7 @@ class CommonIconButton extends StatelessWidget {
   final double width;
   final double height;
   final double borderRadius;
+  final void Function()? onTap;
   const CommonIconButton({
     super.key,
     required this.name,
@@ -16,6 +17,7 @@ class CommonIconButton extends StatelessWidget {
     required this.width,
     required this.height,
     required this.borderRadius,
+    this.onTap
   });
 
   @override
@@ -23,30 +25,33 @@ class CommonIconButton extends StatelessWidget {
     final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Container(
-        height: height,
-        width: width,
-        decoration: BoxDecoration(
-            border: Border.all(
-              color: isDarkMode ? lightGray : charcoal,
-            ),
-            borderRadius: BorderRadius.circular(borderRadius)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                name,
-                style: TextStyle(
-                  color: isDarkMode ? lightGray : charcoal,
-                ),
-              ),
-              Icon(
-                icon,
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          height: height,
+          width: width,
+          decoration: BoxDecoration(
+              border: Border.all(
                 color: isDarkMode ? lightGray : charcoal,
               ),
-            ],
+              borderRadius: BorderRadius.circular(borderRadius)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(
+                    color: isDarkMode ? lightGray : charcoal,
+                  ),
+                ),
+                Icon(
+                  icon,
+                  color: isDarkMode ? lightGray : charcoal,
+                ),
+              ],
+            ),
           ),
         ),
       ),

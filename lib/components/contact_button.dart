@@ -20,7 +20,7 @@ class ContactButtonMob extends StatelessWidget {
         height: 40,
         width: 250,
         decoration: BoxDecoration(
-            border: Border.all(color: charcoal),
+            border: Border.all(color: isDarkMode ? lightGray : charcoal),
             borderRadius: const BorderRadius.all(Radius.circular(20))),
         child: SizedBox(
           child: SvgPicture.asset(

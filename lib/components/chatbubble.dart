@@ -6,12 +6,16 @@ import 'package:provider/provider.dart';
 class ChatBubble extends StatelessWidget {
   final Color bubbleColor;
   final Color borderColor;
+  final double height;
+  final double width;
   final String text;
   const ChatBubble({
     super.key,
     required this.bubbleColor,
     required this.borderColor,
     required this.text,
+    this.height = 40,
+    this.width = 170,
   });
 
   @override
@@ -26,7 +30,8 @@ class ChatBubble extends StatelessWidget {
           borderColor: borderColor,
         ),
         child: Container(
-          width: 170,
+          height: height,
+          width: width,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Center(
             child: Text(
@@ -62,7 +67,7 @@ class ChatBubblePainter extends CustomPainter {
     final rectPath = Path()
       ..addRRect(RRect.fromRectAndRadius(
         Rect.fromLTWH(0, 0, size.width, size.height),
-        const Radius.circular(5), // Reduced border radius
+        const Radius.circular(5),
       ));
 
     // Triangle path

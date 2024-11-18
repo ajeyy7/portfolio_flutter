@@ -21,6 +21,7 @@ class ExperienceMob extends StatelessWidget {
       child: SizedBox(
         height: screenHeight,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ChatBubble(

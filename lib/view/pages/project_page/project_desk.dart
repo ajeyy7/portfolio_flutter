@@ -90,6 +90,7 @@ class ProjectDesktop extends StatelessWidget {
                     },
                     options: CarouselOptions(
                       height: 400,
+                      animateToClosest: true,
                       autoPlay: true,
                       enlargeCenterPage: true,
                       onPageChanged: (index, reason) {

@@ -24,16 +24,17 @@ class MobileTopbar extends StatelessWidget {
                   size: 40,
                 ),
                 onPressed: () {
-                      Provider.of<ThemeNotifier>(context, listen: false).toggleMenu();
-
+                  Provider.of<ThemeNotifier>(context, listen: false)
+                      .toggleMenu();
                 },
               ),
               InkWell(
                 onTap: () {
-    Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
+                  Provider.of<ThemeNotifier>(context, listen: false)
+                      .toggleTheme();
                 },
                 child: Icon(
-                  isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                  isDarkMode ? Icons.light_mode : Icons.dark_mode,
                   color: isDarkMode ? lightGray : charcoal,
                   size: 40,
                 ),
