@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/components/commonicon_button.dart';
 import 'package:portfolio_flutter/components/fade_divider.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
@@ -15,53 +16,49 @@ class ExperienceMob extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
-    return SizedBox(
-      height: screenHeight,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SizedBox(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                'Experience',
-                style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: isDarkMode ? lightGray : charcoal),
-              ),
-              const SizedBox(height: 16),
-              const FadeDivider(),
-              const ExperienceItem(
-                company: 'Flutter Developer - RagTechnologies',
-                description:
-                    '• Specialized in crafting mobile applications seamlessly \nintegrated with ERP & CRM solutions\n for transportation and logistics. '
-                    '• Developed and maintained cross-platform apps using Flutter.',
-                duration: 'Feb 2024 – Aug 2024',
-              ),
-              const SizedBox(height: 16),
-              const FadeDivider(),
-              const ExperienceItem(
-                company: 'Flutter Developer Intern - Luminar Technolab',
-                description:
-                    '• Built Android applications using Flutter and Dart.\n'
-                    '• Gained expertise in state management, local storage, and API integration using HTTP/Dio.',
-                duration: 'Aug 2023 - Feb 2024',
-              ),
-              const FadeDivider(),
-              const Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  CommonIconButton(
-                      name: 'CV',
-                      icon: Icons.arrow_downward_rounded,
-                      width: 150,
-                      height: 40,
-                      borderRadius: 20),
-                ],
-              ),
-            ],
-          ),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: SizedBox(
+        height: screenHeight,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ChatBubble(
+              text: '<Experience/>',
+              bubbleColor: isDarkMode ? charcoal : lightGray,
+              borderColor: isDarkMode ? lightGray : charcoal,
+            ),
+            const SizedBox(height: 16),
+            const FadeDivider(),
+            const ExperienceItem(
+              company: 'Flutter Developer - RagTechnologies',
+              description:
+                  '• Specialized in crafting mobile applications seamlessly \nintegrated with ERP & CRM solutions\n for transportation and logistics. '
+                  '• Developed and maintained cross-platform apps using Flutter.',
+              duration: 'Feb 2024 – Aug 2024',
+            ),
+            const SizedBox(height: 16),
+            const FadeDivider(),
+            const ExperienceItem(
+              company: 'Flutter Developer Intern - Luminar Technolab',
+              description:
+                  '• Built Android applications using Flutter and Dart.\n'
+                  '• Gained expertise in state management, local storage, and API integration using HTTP/Dio.',
+              duration: 'Aug 2023 - Feb 2024',
+            ),
+            const FadeDivider(),
+            const Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                CommonIconButton(
+                    name: 'CV',
+                    icon: Icons.arrow_downward_rounded,
+                    width: 150,
+                    height: 40,
+                    borderRadius: 20),
+              ],
+            ),
+          ],
         ),
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view/pages/fullview.dart';
+import 'package:portfolio_flutter/view_model/project_vm.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 
 import 'package:provider/provider.dart';
@@ -14,8 +15,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => ThemeNotifier(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => ThemeNotifier(),
+        ),
+        ChangeNotifierProvider(create: (_) => ProjectProvider())
+      ],
       child: Consumer<ThemeNotifier>(
         builder: (context, themeNotifier, child) {
           return MaterialApp(
@@ -24,7 +30,7 @@ class MyApp extends StatelessWidget {
             darkTheme: darkTheme,
             themeMode:
                 themeNotifier.isDarkMode ? ThemeMode.dark : ThemeMode.light,
-            home: const FullView(),
+            home:  FullView(),
           );
         },
       ),

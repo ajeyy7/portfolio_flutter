@@ -12,7 +12,7 @@ class ContactButtonMob extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -25,8 +25,7 @@ class ContactButtonMob extends StatelessWidget {
         child: SizedBox(
           child: SvgPicture.asset(
             colorFilter: ColorFilter.mode(
-                isDarkMode ? lightGray:charcoal,
-                BlendMode.srcIn),
+                isDarkMode ? lightGray : charcoal, BlendMode.srcIn),
             label,
             height: 40,
             width: 40,
@@ -50,13 +49,15 @@ class ContactButtonDeskTop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
         height: 70,
         width: 200,
         decoration: BoxDecoration(
-            border: Border.all(color: charcoal),
+            border: Border.all(color: isDarkMode ? lightGray : charcoal),
             borderRadius: const BorderRadius.all(Radius.circular(40))),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -64,8 +65,7 @@ class ContactButtonDeskTop extends StatelessWidget {
             SizedBox(
               child: SvgPicture.asset(
                 colorFilter: ColorFilter.mode(
-                    context.read<ThemeNotifier>().isDarkMode ? charcoal : gray,
-                    BlendMode.srcIn),
+                    isDarkMode ? lightGray : charcoal, BlendMode.srcIn),
                 label,
                 height: 40,
                 width: 40,

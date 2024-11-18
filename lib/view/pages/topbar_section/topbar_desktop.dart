@@ -5,9 +5,9 @@ import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
 
 class DesktopTopbar extends StatelessWidget {
-  const DesktopTopbar({
-    super.key,
-  });
+  final void Function(String section) onScrollToSection;
+
+  const DesktopTopbar({super.key, required this.onScrollToSection});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +18,26 @@ class DesktopTopbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const TopBarTextButton(title: 'About Me'),
-          const TopBarTextButton(title: 'Projects'),
-          const TopBarTextButton(title: 'Experience'),
-          const TopBarTextButton(title: 'Skills'),
-          const TopBarTextButton(title: 'Contact Me'),
+          TopBarTextButton(
+            title: 'About Me',
+            onTap: () => onScrollToSection('About Me'),
+          ),
+          TopBarTextButton(
+            title: 'Projects',
+            onTap: () => onScrollToSection('Projects'),
+          ),
+          TopBarTextButton(
+            title: 'Experience',
+            onTap: () => onScrollToSection('Experience'),
+          ),
+          TopBarTextButton(
+            title: 'Skills',
+            onTap: () => onScrollToSection('Projects'),
+          ),
+          TopBarTextButton(
+            title: 'Contact Me',
+            onTap: () => onScrollToSection('Contact Me'),
+          ),
           InkWell(
             onTap: () {
               context.read<ThemeNotifier>().toggleTheme();

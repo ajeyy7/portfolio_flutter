@@ -13,102 +13,101 @@ class ProjectMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final screenHeight = MediaQuery.of(context).size.height;
+    final screenHeight = MediaQuery.of(context).size.height;
     final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
-    return SizedBox(
-      height: screenHeight,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-           Padding(
-            padding:const  EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-              "<Projects/>",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600,color: isDarkMode?lightGray:charcoal),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: SizedBox(
+        height: screenHeight,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                "<Projects/>",
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600,
+                    color: isDarkMode ? lightGray : charcoal),
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-          CarouselSlider(
-            items: const [
-              ProjectCard(
-                  title: "GO Deportes",
-                  status: "En Proceso",
-                  image: "assets/svgs/skill.webp"),
-              ProjectCard(
-                  title: "donARG",
-                  status: "Finalizado",
-                  image: "assets/svgs/skill.webp"),
-              ProjectCard(
-                  title: "GO Deportes",
-                  status: "En Proceso",
-                  image: "assets/svgs/skill.webp"),
-              ProjectCard(
-                  title: "donARG",
-                  status: "Finalizado",
-                  image: "assets/svgs/skill.webp"),
-            ],
-            options: CarouselOptions(
-              animateToClosest: true,
-              height: 400,
-              autoPlay: true,
-              enlargeCenterPage: true,
+            const SizedBox(height: 20),
+            CarouselSlider(
+              items: const [
+                ProjectCard(
+                    title: "GO Deportes", image: "assets/svgs/skill.webp"),
+                ProjectCard(title: "donARG", image: "assets/svgs/skill.webp"),
+                ProjectCard(
+                    title: "GO Deportes", image: "assets/svgs/skill.webp"),
+                ProjectCard(title: "donARG", image: "assets/svgs/skill.webp"),
+              ],
+              options: CarouselOptions(
+                animateToClosest: true,
+                height: 400,
+                autoPlay: true,
+                enlargeCenterPage: true,
+              ),
             ),
-          ),
-           Column(
-            children: [
-              Padding(
-            padding:const  EdgeInsets.symmetric(horizontal: 16.0),
-                child: Text(
-                  "<Skills/>",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600,color: isDarkMode?lightGray:charcoal),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Text(
+                    "<Skills/>",
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w600,
+                        color: isDarkMode ? lightGray : charcoal),
+                  ),
                 ),
-              ),
-              const SizedBox(height: 16),
-              const Wrap(
-                spacing: 12,
-                children: [
-                  SkillIcon(
-                      icon: Icons.code,
-                      label: "assets/svgs/dart.svg",
-                      height: 50,
-                      width: 50),
-                  SkillIcon(
-                      icon: Icons.phone_android,
-                      label: "assets/svgs/flutter.svg",
-                      height: 50,
-                      width: 50),
-                  SkillIcon(
-                      icon: Icons.api,
-                      label: "assets/svgs/github.svg",
-                      height: 50,
-                      width: 50),
-                  SkillIcon(
-                      icon: Icons.code,
-                      label: "assets/svgs/figma.svg",
-                      height: 50,
-                      width: 50),
-                  SkillIcon(
-                      icon: Icons.phone_android,
-                      label: "assets/svgs/nodejs.svg",
-                      height: 50,
-                      width: 50),
-                  SkillIcon(
-                      icon: Icons.api,
-                      label: "assets/svgs/postman.svg",
-                      height: 50,
-                      width: 50),
-                  SkillIcon(
-                      icon: Icons.api,
-                      label: "assets/svgs/js.svg",
-                      height: 50,
-                      width: 50),
-                ],
-              ),
-            ],
-          )
-        ],
+                const SizedBox(height: 16),
+                const Wrap(
+                  spacing: 12,
+                  children: [
+                    SkillIcon(
+                        icon: Icons.code,
+                        label: "assets/svgs/dart.svg",
+                        height: 50,
+                        width: 50),
+                    SkillIcon(
+                        icon: Icons.phone_android,
+                        label: "assets/svgs/flutter.svg",
+                        height: 50,
+                        width: 50),
+                    SkillIcon(
+                        icon: Icons.api,
+                        label: "assets/svgs/github.svg",
+                        height: 50,
+                        width: 50),
+                    SkillIcon(
+                        icon: Icons.code,
+                        label: "assets/svgs/figma.svg",
+                        height: 50,
+                        width: 50),
+                    SkillIcon(
+                        icon: Icons.phone_android,
+                        label: "assets/svgs/nodejs.svg",
+                        height: 50,
+                        width: 50),
+                    SkillIcon(
+                        icon: Icons.api,
+                        label: "assets/svgs/postman.svg",
+                        height: 50,
+                        width: 50),
+                    SkillIcon(
+                        icon: Icons.api,
+                        label: "assets/svgs/js.svg",
+                        height: 50,
+                        width: 50),
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

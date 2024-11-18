@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_flutter/components/chatbubble.dart';
+import 'package:portfolio_flutter/components/commonicon_button.dart';
 import 'package:portfolio_flutter/components/experience_card.dart';
+import 'package:portfolio_flutter/components/fade_divider.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
@@ -20,14 +23,14 @@ class ExperineceDesktop extends StatelessWidget {
         height: screenHeight,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Experience',
-              style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: isDarkMode ? lightGray : charcoal),
+            ChatBubble(
+              text: '<Experience/>',
+              bubbleColor: isDarkMode ? charcoal : lightGray,
+              borderColor: isDarkMode ? lightGray : charcoal,
             ),
+            const FadeDivider(),
             const SizedBox(height: 16),
             const WorkExperienceCard(
               title: 'Flutter Developer - RagTechnologies',
@@ -36,6 +39,7 @@ class ExperineceDesktop extends StatelessWidget {
                   '• Specialized in crafting mobile applications seamlessly \nintegrated with ERP & CRM solutions\n for transportation and logistics. '
                   '• Developed and maintained cross-platform apps using Flutter.',
             ),
+            const FadeDivider(),
             const SizedBox(height: 16),
             const WorkExperienceCard(
               title: 'Flutter Developer Intern - Luminar Technolab',
@@ -44,42 +48,13 @@ class ExperineceDesktop extends StatelessWidget {
                   '• Built Android applications using Flutter and Dart.\n'
                   '• Gained expertise in state management, local storage, and API integration using HTTP/Dio.',
             ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
-                  height: 40,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                    border: Border.all(
-                        color: context.read<ThemeNotifier>().isDarkMode
-                            ? charcoal
-                            : gray),
-                  ),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'CV',
-                          style: TextStyle(
-                              color: context.read<ThemeNotifier>().isDarkMode
-                                  ? charcoal
-                                  : gray),
-                        ),
-                        Icon(Icons.download,
-                            color: context.read<ThemeNotifier>().isDarkMode
-                                ? charcoal
-                                : gray)
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            const CommonIconButton(
+                name: 'CV',
+                icon: Icons.arrow_downward,
+                width: 150,
+                height: 40,
+                borderRadius: 20),
+            const FadeDivider(),
           ],
         ),
       ),
