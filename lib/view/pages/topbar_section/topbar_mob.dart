@@ -10,69 +10,82 @@ class MobileTopbar extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = context.watch<ThemeNotifier>().isDarkMode;
 
-    return Column(
-      children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                icon: Icon(
-                  Icons.sort,
-                  color: isDarkMode ? lightGray : charcoal,
-                  size: 40,
-                ),
-                onPressed: () {
-                  Provider.of<ThemeNotifier>(context, listen: false)
-                      .toggleMenu();
-                },
-              ),
-              InkWell(
-                onTap: () {
-                  Provider.of<ThemeNotifier>(context, listen: false)
-                      .toggleTheme();
-                },
-                child: Icon(
-                  isDarkMode ? Icons.light_mode : Icons.dark_mode,
-                  color: isDarkMode ? lightGray : charcoal,
-                  size: 40,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Visibility(
-          visible: context.watch<ThemeNotifier>().isMenuShowing,
-          child: Container(
-            color: isDarkMode ? lightGray : charcoal,
-            child: Column(
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                MenuItem(
-                  title: 'About Me',
-                  onTap: () {},
+                IconButton(
+                  icon: Icon(
+                    Icons.sort,
+                    color: isDarkMode ? lightGray : charcoal,
+                    size: 40,
+                  ),
+                  onPressed: () {
+                    Provider.of<ThemeNotifier>(context, listen: false)
+                        .toggleMenu();
+                  },
                 ),
-                MenuItem(
-                  title: 'Portfolio',
-                  onTap: () {},
-                ),
-                MenuItem(
-                  title: 'Testimonials',
-                  onTap: () {},
-                ),
-                MenuItem(
-                  title: 'Blog',
-                  onTap: () {},
-                ),
-                MenuItem(
-                  title: 'Contact Us',
-                  onTap: () {},
+                InkWell(
+                  onTap: () {
+                    Provider.of<ThemeNotifier>(context, listen: false)
+                        .toggleTheme();
+                  },
+                  child: Icon(
+                    isDarkMode ? Icons.light_mode : Icons.dark_mode,
+                    color: isDarkMode ? lightGray : charcoal,
+                    size: 40,
+                  ),
                 ),
               ],
             ),
           ),
-        ),
-      ],
+          Visibility(
+            visible: context.watch<ThemeNotifier>().isMenuShowing,
+            child: Column(
+              children: [
+                Container(
+                  width: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: isDarkMode
+                        ? lightGray.withOpacity(0.3)
+                        : charcoal.withOpacity(0.3),
+                  ),
+                  child: Column(
+                    children: [
+                      MenuItem(
+                        title: 'About Me',
+                        onTap: () {},
+                      ),
+                      MenuItem(
+                        title: 'Portfolio',
+                        onTap: () {},
+                      ),
+                      MenuItem(
+                        title: 'Testimonials',
+                        onTap: () {},
+                      ),
+                      MenuItem(
+                        title: 'Blog',
+                        onTap: () {},
+                      ),
+                      MenuItem(
+                        title: 'Contact Us',
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -96,7 +109,10 @@ class MenuItem extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                  color: isDarkMode ? lightGray : charcoal, fontSize: 16),
+                  color: isDarkMode
+                      ? charcoal.withOpacity(0.9)
+                      : lightGray.withOpacity(0.9),
+                  fontSize: 16),
             ),
           ],
         ),

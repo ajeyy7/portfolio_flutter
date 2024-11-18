@@ -25,6 +25,8 @@ class ExperienceMob extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ChatBubble(
+              height: 35,
+                  width: 120,
               text: '<Experience/>',
               bubbleColor: isDarkMode ? charcoal : lightGray,
               borderColor: isDarkMode ? lightGray : charcoal,

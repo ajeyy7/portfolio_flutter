@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 class ChatBubble extends StatelessWidget {
   final Color bubbleColor;
   final Color borderColor;
+  final double textSize;
   final double height;
   final double width;
   final String text;
@@ -16,6 +17,7 @@ class ChatBubble extends StatelessWidget {
     required this.text,
     this.height = 40,
     this.width = 170,
+    this.textSize = 16,
   });
 
   @override
@@ -29,15 +31,14 @@ class ChatBubble extends StatelessWidget {
           bubbleColor: bubbleColor,
           borderColor: borderColor,
         ),
-        child: Container(
+        child: SizedBox(
           height: height,
           width: width,
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Center(
             child: Text(
               text,
               style: TextStyle(
-                  color: isDarkMode ? lightGray : charcoal, fontSize: 16),
+                  color: isDarkMode ? lightGray : charcoal, fontSize: textSize),
             ),
           ),
         ),

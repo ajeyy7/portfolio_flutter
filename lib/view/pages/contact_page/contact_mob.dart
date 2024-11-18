@@ -25,6 +25,8 @@ class ContactMob extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ChatBubble(
+                  height: 35,
+                  width: 120,
                   text: '<Contact/>',
                   bubbleColor: isDarkMode ? charcoal : lightGray,
                   borderColor: isDarkMode ? lightGray : charcoal,
@@ -40,7 +42,8 @@ class ContactMob extends StatelessWidget {
                       icon: Icons.chat, label: "assets/svgs/whtsapp.svg"),
                 ),
                 InkWell(
-                  onTap: ()=>launchUrl(Uri.parse('mailto:ajaykrishna9872@gmail.com?subject=Hi')),
+                  onTap: () => launchUrl(
+                      Uri.parse('mailto:ajaykrishna9872@gmail.com?subject=Hi')),
                   child: const ContactButtonMob(
                       icon: Icons.telegram, label: "assets/svgs/gmail.svg"),
                 ),

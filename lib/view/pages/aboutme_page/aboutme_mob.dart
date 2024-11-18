@@ -28,6 +28,9 @@ class AboutMeMobile extends StatelessWidget {
               children: [
                 const SizedBox(height: 20),
                 ChatBubble(
+                  height: 35,
+                  width: 120,
+                  textSize: 14,
                   text: '<Hello World/>',
                   bubbleColor: isDarkMode ? charcoal : lightGray,
                   borderColor: isDarkMode ? lightGray : charcoal,

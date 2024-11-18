@@ -86,7 +86,7 @@ class ProjectDesktop extends StatelessWidget {
                         ),
                         controller: flipController,
                         rotateSide: RotateSide.right,
-                      );
+                       );
                     },
                     options: CarouselOptions(
                       height: 400,

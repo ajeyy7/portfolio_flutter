@@ -34,6 +34,8 @@ class ProjectMobile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ChatBubble(
+              height: 35,
+              width: 120,
               text: '<Projects/>',
               bubbleColor: isDarkMode ? charcoal : lightGray,
               borderColor: isDarkMode ? lightGray : charcoal,
@@ -105,6 +107,8 @@ class ProjectMobile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ChatBubble(
+                  height: 35,
+                  width: 120,
                   text: '<Skills/>',
                   bubbleColor: isDarkMode ? charcoal : lightGray,
                   borderColor: isDarkMode ? lightGray : charcoal,
