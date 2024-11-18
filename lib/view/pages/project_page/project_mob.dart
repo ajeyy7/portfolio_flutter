@@ -102,6 +102,7 @@ class ProjectMobile extends StatelessWidget {
               ],
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ChatBubble(
                   text: '<Skills/>',
