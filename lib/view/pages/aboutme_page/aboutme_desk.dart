@@ -4,6 +4,7 @@ import 'package:portfolio_flutter/components/aboutme_vector.dart';
 import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/components/commonicon_button.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
+import 'package:portfolio_flutter/constants/image.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -80,7 +81,7 @@ class AboutMeDesktop extends StatelessWidget {
                                     colorFilter: ColorFilter.mode(
                                         isDarkMode ? lightGray : charcoal,
                                         BlendMode.srcIn),
-                                    'assets/svgs/github.svg',
+                                   githubSvg,
                                     height: 50,
                                     width: 50,
                                   ),
@@ -93,7 +94,7 @@ class AboutMeDesktop extends StatelessWidget {
                                     colorFilter: ColorFilter.mode(
                                         isDarkMode ? lightGray : charcoal,
                                         BlendMode.srcIn),
-                                    'assets/svgs/linkdein.svg',
+                                    linkedinSvg,
                                     height: 47,
                                     width: 47,
                                   ),
@@ -136,7 +137,7 @@ class AboutMeDesktop extends StatelessWidget {
                         height: screenWidth * 0.4,
                         child: ClipOval(
                           child: Image.asset(
-                            'assets/svgs/img.png',
+                            myImage,
                             fit: BoxFit.cover,
                           ),
                         ),

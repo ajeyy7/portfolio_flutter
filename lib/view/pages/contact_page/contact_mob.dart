@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/components/contact_button.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
+import 'package:portfolio_flutter/constants/image.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -36,32 +37,40 @@ class ContactMob extends StatelessWidget {
             const SizedBox(height: 16),
             Column(
               children: [
-                InkWell(
-                  onTap: () => launchUrl(Uri.https('wa.me', '/9846572149')),
-                  child: const ContactButtonMob(
-                      icon: Icons.chat, label: "assets/svgs/whtsapp.svg"),
+                ContactButtonMob(
+                    onTap: () => launchUrl(Uri.https('wa.me', '/9846572149')),
+                    icon: Icons.chat,
+                    label: whatsappSvg),
+                ContactButtonMob(
+                    onTap: () => launchUrl(Uri.https(
+                        'www.linkedin.com', '/in/ajay-krishna-36193018b')),
+                    icon: Icons.chat,
+                    label: linkedinSvg),
+                ContactButtonMob(
+                    onTap: () => launchUrl(Uri.https('github.com', '/ajeyy7')),
+                    icon: Icons.chat,
+                    label: githubSvg),
+                ContactButtonMob(
+                    onTap: () => launchUrl(Uri.parse(
+                        'mailto:ajaykrishna9872@gmail.com?subject=Hi')),
+                    icon: Icons.telegram,
+                    label: gmailSvg),
+                ContactButtonMob(
+                  icon: Icons.email,
+                  label: telegramSvg,
+                  onTap: () {},
                 ),
-                InkWell(
-                  onTap: () => launchUrl(
-                      Uri.parse('mailto:ajaykrishna9872@gmail.com?subject=Hi')),
-                  child: const ContactButtonMob(
-                      icon: Icons.telegram, label: "assets/svgs/gmail.svg"),
-                ),
-                const ContactButtonMob(
-                    icon: Icons.email, label: "assets/svgs/tele.svg"),
               ],
             ),
             const SizedBox(height: 16),
             Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "https://github.com/ajeyy7",
-                  style: TextStyle(color: isDarkMode ? lightGray : charcoal),
-                ),
-                Text(
-                  "www.linkedin.com/in/ajay-krishna-36193018b",
-                  style: TextStyle(color: isDarkMode ? lightGray : charcoal),
-                ),
+                Text('© 2024 Ajay Krishna. All rights reserved.',
+                    style: TextStyle(
+                        color: isDarkMode ? lightGray : charcoal,
+                        letterSpacing: 4,
+                        fontSize: 12)),
               ],
             ),
           ],

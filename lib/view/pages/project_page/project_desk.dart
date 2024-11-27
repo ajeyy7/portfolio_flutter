@@ -4,6 +4,7 @@ import 'package:flutter_flip_card/flutter_flip_card.dart';
 import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/components/project_card.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
+import 'package:portfolio_flutter/constants/image.dart';
 import 'package:portfolio_flutter/models/project_model.dart';
 import 'package:portfolio_flutter/view/pages/skills_page/skills_page.dart';
 import 'package:portfolio_flutter/view_model/project_vm.dart';
@@ -114,43 +115,43 @@ class ProjectDesktop extends StatelessWidget {
                     children: [
                       SkillIcon(
                         icon: Icons.code,
-                        label: "assets/svgs/dart.svg",
+                        label: dartSvg,
                         height: 60,
                         width: 60,
                       ),
                       SkillIcon(
                         icon: Icons.phone_android,
-                        label: "assets/svgs/flutter.svg",
+                        label: flutterSvg,
                         height: 60,
                         width: 60,
                       ),
                       SkillIcon(
                         icon: Icons.api,
-                        label: "assets/svgs/github.svg",
+                        label: githubSvg,
                         height: 60,
                         width: 60,
                       ),
                       SkillIcon(
                         icon: Icons.code,
-                        label: "assets/svgs/figma.svg",
+                        label: figmaSvg,
                         height: 60,
                         width: 60,
                       ),
                       SkillIcon(
                         icon: Icons.phone_android,
-                        label: "assets/svgs/nodejs.svg",
+                        label: nodeSvg,
                         height: 60,
                         width: 60,
                       ),
                       SkillIcon(
                         icon: Icons.api,
-                        label: "assets/svgs/postman.svg",
+                        label: postmanSvg,
                         height: 60,
                         width: 60,
                       ),
                       SkillIcon(
                         icon: Icons.api,
-                        label: "assets/svgs/js.svg",
+                        label: jsSvg,
                         height: 60,
                         width: 60,
                       ),

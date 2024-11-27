@@ -6,6 +6,7 @@ import 'package:portfolio_flutter/components/fade_divider.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExperineceDesktop extends StatelessWidget {
   const ExperineceDesktop({
@@ -48,7 +49,9 @@ class ExperineceDesktop extends StatelessWidget {
                   '• Built Android applications using Flutter and Dart.\n'
                   '• Gained expertise in state management, local storage, and API integration using HTTP/Dio.',
             ),
-            const CommonIconButton(
+             CommonIconButton(
+              onTap: () => launchUrl(Uri.https('drive.google.com',
+                        '/file/d/18AXPGCaWsGvVVw4EAHtHAOjpZw8ohlGr/view?usp=sharing')),
                 name: 'CV',
                 icon: Icons.arrow_downward,
                 width: 150,

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_flutter/components/chatbubble.dart';
 import 'package:portfolio_flutter/components/contact_button.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
+import 'package:portfolio_flutter/constants/image.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactDesktop extends StatelessWidget {
   const ContactDesktop({super.key});
@@ -27,34 +29,51 @@ class ContactDesktop extends StatelessWidget {
               borderColor: isDarkMode ? lightGray : charcoal,
             ),
             const SizedBox(height: 16),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ContactButtonDeskTop(
+                  onTap: () => launchUrl(Uri.https('wa.me', '/9846572149')),
                   icon: Icons.chat,
-                  label: "assets/svgs/whtsapp.svg",
+                  label: whatsappSvg,
                   title: 'Whatsapp',
                 ),
                 ContactButtonDeskTop(
+                  onTap: () => launchUrl(Uri.https(
+                      'www.linkedin.com', '/in/ajay-krishna-36193018b')),
+                  icon: Icons.chat,
+                  label: linkedinSvg,
+                  title: 'Linkedin',
+                ),
+                ContactButtonDeskTop(
+                  onTap: () => launchUrl(Uri.https('github.com', '/ajeyy7')),
+                  icon: Icons.chat,
+                  label: githubSvg,
+                  title: 'GitHub',
+                ),
+                ContactButtonDeskTop(
+                  onTap: () => launchUrl(
+                      Uri.parse('mailto:ajaykrishna9872@gmail.com?subject=Hi')),
                   icon: Icons.telegram,
-                  label: "assets/svgs/gmail.svg",
+                  label: gmailSvg,
                   title: 'Gmail',
                 ),
                 ContactButtonDeskTop(
+                  onTap: () {},
                   icon: Icons.email,
-                  label: "assets/svgs/tele.svg",
+                  label: telegramSvg,
                   title: 'Telegram',
                 ),
               ],
             ),
             const SizedBox(height: 16),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("https://github.com/ajeyy7",
-                    style: TextStyle(color: isDarkMode ? lightGray : charcoal)),
-                Text("www.linkedin.com/in/ajay-krishna-36193018b",
-                    style: TextStyle(color: isDarkMode ? lightGray : charcoal)),
+                Text('© 2024 Ajay Krishna. All rights reserved.',
+                    style: TextStyle(
+                        color: isDarkMode ? lightGray : charcoal,
+                        letterSpacing: 4)),
               ],
             ),
           ],

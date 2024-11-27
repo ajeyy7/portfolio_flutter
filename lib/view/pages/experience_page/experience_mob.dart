@@ -5,6 +5,7 @@ import 'package:portfolio_flutter/components/fade_divider.dart';
 import 'package:portfolio_flutter/constants/colors.dart';
 import 'package:portfolio_flutter/view_model/themes.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExperienceMob extends StatelessWidget {
   const ExperienceMob({
@@ -50,10 +51,12 @@ class ExperienceMob extends StatelessWidget {
               duration: 'Aug 2023 - Feb 2024',
             ),
             const FadeDivider(),
-            const Row(
+             Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 CommonIconButton(
+                 onTap: () => launchUrl(Uri.https('drive.google.com',
+                        '/file/d/18AXPGCaWsGvVVw4EAHtHAOjpZw8ohlGr/view?usp=sharing')),
                     name: 'CV',
                     icon: Icons.arrow_downward_rounded,
                     width: 150,
